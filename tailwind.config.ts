@@ -1,6 +1,6 @@
 import type { Config } from "tailwindcss";
 
-// const svgToDataUri = require("mini-svg-data-uri");
+const svgToDataUri = require("mini-svg-data-uri");
 const colors = require("tailwindcss/colors");
 const {
   default: flattenColorPalette,
@@ -18,7 +18,6 @@ function addVariablesForColors({ addBase, theme }: any) {
   });
 }
 
-/*
 function addSvgPatterns({ matchUtilities, theme }: any) {
   matchUtilities(
     {
@@ -41,7 +40,7 @@ function addSvgPatterns({ matchUtilities, theme }: any) {
     { values: flattenColorPalette(theme('backgroundColor')), type: 'color' }
   );
 }
-*/
+
 
 const config: Config = {
   content: [
@@ -74,6 +73,6 @@ const config: Config = {
       }
     },
   },
-  plugins: [addVariablesForColors],
+  plugins: [addVariablesForColors, addSvgPatterns],
 };
 export default config;
